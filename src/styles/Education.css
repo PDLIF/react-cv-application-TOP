@@ -1,0 +1,16 @@
+.education-section {
+    border: 1px solid black;
+    padding: 1rem;
+    max-width: fit-content;
+    border-radius: 5px;
+}
+
+.education-section input {
+    border-radius: 4px;
+}
+
+.education-section form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
