@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import '../../styles/GeneralInfo.css';
 
-function GeneralInfo() {
+function GeneralInfo({
+    personalInfo,
+    onPersonalInfoChange,
+}) {
     const [isEditing, setIsEditing] = useState(true);
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: ''
-    });
-    const [tempFormData, setTempFormData] = useState(formData);
+    const [tempFormData, setTempFormData] = useState(personalInfo);
 
     const handleChange = (e) => {
         setTempFormData({
@@ -20,7 +18,9 @@ function GeneralInfo() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsEditing(false);
-        setFormData(tempFormData);
+        Object.entries(tempFormData).forEach(([field, value]) => {
+            onPersonalInfoChange(field, value);
+        });
     }
 
     const handleEdit = (e) => {
@@ -39,9 +39,9 @@ function GeneralInfo() {
                     <form onSubmit={handleSubmit}>
                         <input 
                             type="text"
-                            name='name'
-                            placeholder='Name'
-                            value={tempFormData.name}
+                            name='fullName'
+                            placeholder='Full Name'
+                            value={tempFormData.fullName}
                             onChange={handleChange}
                         />
                         <input 
