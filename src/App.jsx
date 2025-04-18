@@ -23,7 +23,7 @@ function App() {
         onPersonalInfoChange={updatePersonalInfo}
       />
       <Education education={cvData.education} onAdd={addEducation} onUpdate={updateEducation} onRemove={removeEducation} />
-      <Experience />
+      <Experience experience={cvData.experience} onAdd={addExperience} onUpdate={updateExperience} onRemove={removeExperience} />
     </div>
   );
 }
