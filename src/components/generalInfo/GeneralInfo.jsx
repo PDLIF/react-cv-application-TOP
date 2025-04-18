@@ -3,7 +3,7 @@ import '../../styles/GeneralInfo.css';
 
 function GeneralInfo({
     personalInfo,
-    onPersonalInfoChange,
+    onPersonalInfoChange
 }) {
     const [isEditing, setIsEditing] = useState(true);
     const [tempFormData, setTempFormData] = useState(personalInfo);
@@ -24,18 +24,16 @@ function GeneralInfo({
     }
 
     const handleEdit = (e) => {
-        setTempFormData(formData);
+        setTempFormData(personalInfo);
         setIsEditing(true);
     }
 
     return (
         <div className='general-section'>
             <h2>General Information</h2>
-            {isEditing ? (
-                <>    
-                    <p><strong>Name:</strong> {formData.name}</p>
-                    <p><strong>Email:</strong> {formData.email}</p>
-                    <p><strong>Phone:</strong> {formData.phone}</p>
+
+            {isEditing === true && (
+                <>   
                     <form onSubmit={handleSubmit}>
                         <input 
                             type="text"
@@ -61,11 +59,13 @@ function GeneralInfo({
                         <button type='submit'>Submit</button>
                     </form>
                 </>
-            ) : (
+            )}
+            
+            {isEditing === false && (
                 <div>
-                    <p><strong>Name:</strong> {formData.name}</p>
-                    <p><strong>Email:</strong> {formData.email}</p>
-                    <p><strong>Phone:</strong> {formData.phone}</p>
+                    <p><strong>Name:</strong> {personalInfo.fullName}</p>
+                    <p><strong>Email:</strong> {personalInfo.email}</p>
+                    <p><strong>Phone:</strong> {personalInfo.phone}</p>
                     <button onClick={handleEdit}>Edit</button>
                 </div>
             )}
