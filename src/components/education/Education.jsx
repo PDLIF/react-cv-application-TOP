@@ -1,76 +1,107 @@
 import React, {useState} from 'react';
 import '../../styles/Education.css'
 
-function Education() {
-    const [isEditing, setIsEditing] = useState(true);
-    const [formData, setFormData] = useState({
-        schoolName: '',
-        titleOfStudy: '',
-        dateOfStudy: ''
-    });
-    const [tempFormData, setTempFormData] = useState(formData);
+function Education({
+    education,
+    onAdd,
+    onUpdate,
+    onRemove
+}) {
+    const [editingId, setEditingId] = useState(null);
+    const [tempFormData, setTempFormData] = useState({ school: '', degree: '', startDate: '', endDate: '' });
 
-    const handleChange = (e) => {
+    const handleAddNew = () => {
+        const newId = onAdd();
+        setEditingId(newId);
+        setTempFormData({ school: '', degree: '', startDate: '', endDate: '' });
+    }
+
+    const handleEdit = (ed) => {
+        setEditingId(ed.id);
+        setTempFormData({ ...ed });
+    }
+
+    const handleChange = (event) => {
         setTempFormData({
             ...tempFormData,
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         });
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsEditing(false);
-        setFormData(tempFormData);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        Object.entries(tempFormData).forEach(([field, value]) => {
+            onUpdate(editingId, field, value);
+        });
+        setEditingId(null);
     }
 
-    const handleEdit = (e) => {
-        setTempFormData(formData);
-        setIsEditing(true);
+    const handleRemove = (ed) => {
+        onRemove(ed.id);
+    }
+
+    const handleCancel = () => {
+        setEditingId(null);
     }
 
     return (
         <div className="education-section">
             <h2>Education</h2>
-            {isEditing ? (
-                <>
-                    <p><strong>School name:</strong> {formData.schoolName}</p>
-                    <p><strong>Title of study:</strong> {formData.titleOfStudy}</p>
-                    <p><strong>Date of study:</strong> {formData.dateOfStudy}</p>
-                    <form onSubmit={handleSubmit}>
-                        <input 
-                            type="text"
-                            name='schoolName'
-                            placeholder='School name'
-                            value={tempFormData.schoolName}
-                            onChange={handleChange}
-                        />
-                        <input 
-                            type="text"
-                            name='titleOfStudy'
-                            placeholder='Title of study'
-                            value={tempFormData.titleOfStudy}
-                            onChange={handleChange}
-                        />
-                        <input 
-                            type="text"
-                            name='dateOfStudy'
-                            placeholder='Date of study'
-                            value={tempFormData.dateOfStudy}
-                            onChange={handleChange}
-                        />
-                        <button type='submit'>Submit</button>
-                    </form>
-                </>
-            ) : (
-                <div>
-                    <p><strong>School name:</strong> {formData.schoolName}</p>
-                    <p><strong>Title of study:</strong> {formData.titleOfStudy}</p>
-                    <p><strong>Date of study:</strong> {formData.dateOfStudy}</p>
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
+            
+            {editingId !== null && (
+                <form onSubmit={handleSubmit} className='education-edit-form'>
+                    <input 
+                        type="text"
+                        name='school'
+                        placeholder='School name'
+                        value={tempFormData.school}
+                        onChange={handleChange}
+                    />
+                    <input 
+                        type="text"
+                        name='degree'
+                        placeholder='Degree/Title'
+                        value={tempFormData.degree}
+                        onChange={handleChange}
+                    />
+                    <input 
+                        type="date"
+                        name='startDate'
+                        placeholder='Start date'
+                        value={tempFormData.startDate}
+                        onChange={handleChange}
+                    />
+                    <input 
+                        type="date"
+                        name='endDate'
+                        placeholder='End date'
+                        value={tempFormData.endDate}
+                        onChange={handleChange}
+                    />
+                    <div className="form-actions">
+                        <button type='submit'>Save</button>
+                        <button type='button' onClick={handleCancel}>Cancel</button>
+                    </div>
+                </form>
             )}
+
+            {editingId === null && (
+                <>
+                    {education.map(ed => (
+                        <div key={ed.id} className="education-entry">
+                            <h3>{ed.school || 'Unknown school'}</h3>
+                            <div className="entry-actions">
+                                <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
+                                <button onClick={() => handleRemove(ed)} className='remove-btn'>Remove</button>
+                            </div>
+                        </div>
+                    ))}
+                </>
+            )}
+            
+            <button onClick={handleAddNew} className='add-btn'>+ Add</button>
         </div>
-    )
+    );
 }
 
 export default Education;
