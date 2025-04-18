@@ -23,13 +23,16 @@ function useCVData() {
 
     // function for education entries
     const addEducation = () => {
+        const newId = Date.now();
         setCVData(prev => ({
             ...prev,
             education: [
                 ...prev.education,
-                { id: Date.now(), school: '', degree: '', startDate: '', endDate: '' },
+                { id: newId, school: '', degree: '', startDate: '', endDate: '' },
             ],
         }));
+        
+        return newId;
     };
 
     const updateEducation = (id, field, value) => {
@@ -49,13 +52,16 @@ function useCVData() {
     };
 
     const addExperience = () => {
+        const newId = Date.now();
         setCVData(prev => ({
             ...prev,
             experience: [
                 ...prev.experience,
-                { id: Date.now(), companyName: '', position: '', mainTasks: '', dateFrom: '', dateTo: '' },
+                { id: newId, companyName: '', position: '', mainTasks: '', dateFrom: '', dateTo: '' },
             ],
         }));
+        
+        return newId;
     };
 
     const updateExperience = (id, field, value) => {
