@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../../styles/form-section.css'
 
 function Experience({
     experience,
