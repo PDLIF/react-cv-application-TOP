@@ -1,15 +1,15 @@
-.experience-section {
+.form-section {
     border: 1px solid black;
     padding: 1rem;
     max-width: fit-content;
     border-radius: 5px;
 }
 
-.experience-section input {
+.form-section input {
     border-radius: 4px;
 }
 
-.experience-section form {
+.form-section form {
     display: flex;
     flex-direction: column;
     gap: .5rem;

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../../styles/GeneralInfo.css';
 
 function GeneralInfo({
     personalInfo,
@@ -29,7 +28,7 @@ function GeneralInfo({
     }
 
     return (
-        <div className='general-section'>
+        <div className='form-section general-section'>
             <h2>General Information</h2>
 
             {isEditing === true && (

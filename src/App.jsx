@@ -4,6 +4,8 @@ import Education from './components/education/Education';
 import Experience from './components/experience/Experience';
 import CVPreview from './components/other/CVPreview';
 
+import './styles/form-section.css'
+
 function App() {
   const {
     cvData,

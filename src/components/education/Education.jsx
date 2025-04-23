@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../../styles/Education.css'
 
 function Education({
     education,
@@ -45,7 +44,7 @@ function Education({
     }
 
     return (
-        <div className="education-section">
+        <div className="form-section education-section">
             <h2>Education</h2>
             
             {editingId !== null && (

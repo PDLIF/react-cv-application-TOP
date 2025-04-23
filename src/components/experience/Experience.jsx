@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../../styles/Experience.css'
 
 function Experience({
     experience,
@@ -45,7 +44,7 @@ function Experience({
     }
 
     return (
-        <div className="experience-section">
+        <div className="form-section experience-section">
             <h2>Experience</h2>
 
             {editingId !== null && (
