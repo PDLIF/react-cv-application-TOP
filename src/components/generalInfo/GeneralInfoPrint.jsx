@@ -5,7 +5,7 @@ function GeneralInfoPrint({ fullName, email, phone, adress }) {
             <div className="contact-info">
                 {email && (
                     <div>
-                        <i className="fa-colid fa-envelope" />
+                        <i className="fa-solid fa-envelope" />
                         <span>{email}</span>
                     </div>
                 )}
