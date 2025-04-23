@@ -17,7 +17,7 @@ function App() {
   } = useCVData();
 
   return (
-    <div className='App'>
+    <div className='app'>
       <div className="cv-form">
         <GeneralInfo personalInfo={cvData.personalInfo} onPersonalInfoChange={updatePersonalInfo} />
         <Education education={cvData.education} onAdd={addEducation} onUpdate={updateEducation} onRemove={removeEducation} />
