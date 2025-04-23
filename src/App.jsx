@@ -18,10 +18,11 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>CV Builder</h1>
-      <GeneralInfo personalInfo={cvData.personalInfo} onPersonalInfoChange={updatePersonalInfo} />
-      <Education education={cvData.education} onAdd={addEducation} onUpdate={updateEducation} onRemove={removeEducation} />
-      <Experience experience={cvData.experience} onAdd={addExperience} onUpdate={updateExperience} onRemove={removeExperience} />
+      <div className="cv-form">
+        <GeneralInfo personalInfo={cvData.personalInfo} onPersonalInfoChange={updatePersonalInfo} />
+        <Education education={cvData.education} onAdd={addEducation} onUpdate={updateEducation} onRemove={removeEducation} />
+        <Experience experience={cvData.experience} onAdd={addExperience} onUpdate={updateExperience} onRemove={removeExperience} />
+      </div>
       <CVPreview generalInfo={cvData.personalInfo} education={cvData.education} experience={cvData.experience} />
     </div>
   );
