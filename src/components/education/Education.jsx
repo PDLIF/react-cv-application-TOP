@@ -78,7 +78,7 @@ function Education({
                         value={tempFormData.endDate}
                         onChange={handleChange}
                     />
-                    <div className="form-actions">
+                    <div className="flex form-actions">
                         <button type='submit'>Save</button>
                         <button type='button' onClick={handleCancel}>Cancel</button>
                     </div>

@@ -34,6 +34,10 @@
     opacity: .6;
 }
 
+form .form-actions {
+    align-self: flex-end;
+}
+
 .form-section button {
     border-radius: 10px;
     border: none;
