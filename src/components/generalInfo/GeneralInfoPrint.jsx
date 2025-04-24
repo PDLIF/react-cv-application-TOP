@@ -1,8 +1,10 @@
+import '../../styles/GeneralInfoPrint.css'
+
 function GeneralInfoPrint({ fullName, email, phone, adress }) {
     return(
-        <div className="general-info">
-            <h1 className="resume-name">{fullName}</h1>
-            <div className="contact-info">
+        <div className="flex br-10 general-info">
+            <h1 className="name">{fullName}</h1>
+            <div className="flex other-info">
                 {email && (
                     <div>
                         <i className="fa-solid fa-envelope" />
