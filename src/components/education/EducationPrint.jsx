@@ -4,7 +4,7 @@ function EducationPrint({ education }) {
             <h2 className={`heading ${education.length === 0 ? 'hidden' : ''} `}>Education</h2>
 
             {education.map(ed => (
-                <div key={ed.id} className="education-unit">
+                <div key={ed.id} className="info-unit">
                     <p className="period">{ed.startDate.split('-').slice(0, 2).join('-') + ' – ' + ed.endDate.split('-').slice(0, 2).join('-')}</p>
                     <div className="title">
                         <h3>{ed.degree}</h3>
