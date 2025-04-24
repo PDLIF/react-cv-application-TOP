@@ -96,10 +96,9 @@ function Education({
                             </div>
                         </div>
                     ))}
+                    <button onClick={handleAddNew} className='add-btn'>+ Add</button>
                 </>
             )}
-            
-            <button onClick={handleAddNew} className='add-btn'>+ Add</button>
         </div>
     );
 }

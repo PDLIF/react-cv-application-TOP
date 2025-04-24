@@ -29,12 +29,12 @@ function GeneralInfo({
     }
 
     return (
-        <div className='form-section general-section'>
-            <h2>General Information</h2>
+        <div className={`form-section general-section ${isEditing ? '' : 'flex'}`}>
+            <h2 className='heading'>General Information</h2>
 
             {isEditing === true && (
                 <>   
-                    <form onSubmit={handleSubmit}>
+                    <form className='flex' onSubmit={handleSubmit}>
                         <input 
                             type="text"
                             name='fullName'
@@ -62,12 +62,9 @@ function GeneralInfo({
             )}
             
             {isEditing === false && (
-                <div>
-                    <p><strong>Name:</strong> {personalInfo.fullName}</p>
-                    <p><strong>Email:</strong> {personalInfo.email}</p>
-                    <p><strong>Phone:</strong> {personalInfo.phone}</p>
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
+                <>
+                    <button className='edit-btn' onClick={handleEdit}>Edit</button>
+                </>
             )}
         </div>
     )

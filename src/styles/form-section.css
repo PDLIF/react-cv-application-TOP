@@ -10,7 +10,49 @@
 }
 
 .form-section form {
-    display: flex;
     flex-direction: column;
-    gap: .5rem;
+    --gap: .7rem;
+}
+
+.form-section .heading {
+    margin-bottom: 1rem;
+}
+
+.form-section form input {
+    border-radius: 7px;
+    background-color: rgb(121, 119, 119);
+    border: none;
+    padding-inline: .5rem;
+    padding-block: .2rem;
+    color: #ffff;
+}
+
+.form-section form input::placeholder {
+    color: #ffff;
+    font-weight: 300;
+    font-size: 14px;
+    opacity: .6;
+}
+
+.form-section button {
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(54, 120, 227);
+    color: #ffff;
+    padding: .2rem .5rem;
+    cursor: pointer;
+}
+
+.form-section form button {
+    align-self: end;
+    margin-top: 1rem;
+}
+
+.general-section.flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.general-section.flex .heading {
+    margin-bottom: 0px;
 }
