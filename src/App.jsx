@@ -19,8 +19,8 @@ function App() {
   } = useCVData();
 
   return (
-    <div className='app'>
-      <div className="cv-form">
+    <div className='app flex'>
+      <div className="cv-form flex">
         <GeneralInfo personalInfo={cvData.personalInfo} onPersonalInfoChange={updatePersonalInfo} />
         <Education education={cvData.education} onAdd={addEducation} onUpdate={updateEducation} onRemove={removeEducation} />
         <Experience experience={cvData.experience} onAdd={addExperience} onUpdate={updateExperience} onRemove={removeExperience} />
