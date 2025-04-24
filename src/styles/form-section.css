@@ -64,3 +64,15 @@
 .form-section:not(.general-section) {
     flex-direction: column;
 }
+
+
+
+
+
+.entries-section {
+    flex-direction: column;
+}
+
+.entry {
+    justify-content: space-between;
+}
