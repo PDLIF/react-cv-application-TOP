@@ -54,6 +54,7 @@ form .form-actions {
 
 .form-section .add-btn {
     margin-top: 0rem;
+    align-self: center;
 }
 
 .general-section.flex {
