@@ -5,9 +5,12 @@ function EducationPrint({ education }) {
 
             {education.map(ed => (
                 <div key={ed.id} className="education-unit">
-                    <p>{ed.startDate.split('-').slice(0, 2).join('-') + ' – ' + ed.endDate.split('-').slice(0, 2).join('-')}</p>
-                    <h3>{ed.degree}</h3>
-                    <p>{ed.school}</p>
+                    <p className="period">{ed.startDate.split('-').slice(0, 2).join('-') + ' – ' + ed.endDate.split('-').slice(0, 2).join('-')}</p>
+                    <div className="title">
+                        <h3>{ed.degree}</h3>
+                        <p>{ed.school}</p>
+                    </div>
+                    <p className="description">{ed.description}</p>
                 </div>
             ))}
         </div>

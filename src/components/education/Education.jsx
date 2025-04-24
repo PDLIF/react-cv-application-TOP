@@ -8,12 +8,12 @@ function Education({
     onRemove
 }) {
     const [editingId, setEditingId] = useState(null);
-    const [tempFormData, setTempFormData] = useState({ school: '', degree: '', startDate: '', endDate: '' });
+    const [tempFormData, setTempFormData] = useState({ school: '', degree: '', startDate: '', endDate: '', description: '' });
 
     const handleAddNew = () => {
         const newId = onAdd();
         setEditingId(newId);
-        setTempFormData({ school: '', degree: '', startDate: '', endDate: '' });
+        setTempFormData({ school: '', degree: '', startDate: '', endDate: '', description: '' });
     }
 
     const handleEdit = (ed) => {
@@ -76,6 +76,13 @@ function Education({
                         name='endDate'
                         placeholder='End date'
                         value={tempFormData.endDate}
+                        onChange={handleChange}
+                    />
+                    <input 
+                        type="text"
+                        name='description'
+                        placeholder='Description'
+                        value={tempFormData.description}
                         onChange={handleChange}
                     />
                     <div className="flex form-actions">
