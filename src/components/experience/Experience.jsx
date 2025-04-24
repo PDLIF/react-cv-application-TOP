@@ -96,7 +96,7 @@ function Experience({
                 <>
                     <ul className={`flex ${experience.length === 0 ? 'hidden' : ''} entries-section`}>
                         {experience.map(exp => (
-                            <li key={exp.id} className="flex entry experience-entry">
+                            <li key={exp.id} className="flex br-10 entry experience-entry">
                                 <h3>{exp.position || 'Unknown position'}</h3>
                                 <div className="flex entry-actions">
                                     <button onClick={() => handleEdit(exp)} className='edit-btn'>Edit</button>

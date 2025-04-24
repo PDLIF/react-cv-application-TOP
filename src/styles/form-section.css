@@ -80,4 +80,6 @@ form .form-actions {
 
 .entry {
     justify-content: space-between;
+    background-color: rgb(121, 119, 119);
+    padding: 1rem .5rem;
 }

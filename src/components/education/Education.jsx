@@ -89,7 +89,7 @@ function Education({
                 <>
                     <ul className={`flex ${education.length === 0 ? 'hidden' : ''} entries-section`}>
                         {education.map(ed => (
-                            <li key={ed.id} className="flex entry education-entry">
+                            <li key={ed.id} className="flex br-10 entry education-entry">
                                 <h3>{ed.school || 'Unknown school'}</h3>
                                 <div className="flex entry-actions">
                                     <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
