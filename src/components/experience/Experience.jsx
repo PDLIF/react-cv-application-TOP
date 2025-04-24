@@ -45,11 +45,11 @@ function Experience({
     }
 
     return (
-        <div className="form-section experience-section">
+        <div className="flex form-section experience-section">
             <h2>Experience</h2>
 
             {editingId !== null && (
-                <form onSubmit={handleSubmit} className="experience-edit-form">
+                <form onSubmit={handleSubmit} className="flex experience-edit-form">
                     <input 
                         type="text"
                         name='position'
@@ -94,19 +94,20 @@ function Experience({
 
             {editingId === null && (
                 <>
-                    {experience.map(exp => (
-                        <div key={exp.id} className="experience-entry">
-                            <h3>{exp.position || 'Unknown position'}</h3>
-                            <div className="entry-actions">
-                                <button onClick={() => handleEdit(exp)} className='edit-btn'>Edit</button>
-                                <button onClick={() => handleRemove(exp)} className='remove-btn'>Remove</button>
-                            </div>
-                        </div>
-                    ))}
+                    <ul className={`flex ${experience.length === 0 ? 'hidden' : ''}`}>
+                        {experience.map(exp => (
+                            <li key={exp.id} className="experience-entry">
+                                <h3>{exp.position || 'Unknown position'}</h3>
+                                <div className="entry-actions">
+                                    <button onClick={() => handleEdit(exp)} className='edit-btn'>Edit</button>
+                                    <button onClick={() => handleRemove(exp)} className='remove-btn'>Remove</button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                    <button onClick={handleAddNew} className='add-btn'>+ Add</button>
                 </>
             )}
-
-            <button onClick={handleAddNew} className='add-btn'>+ Add</button>
         </div>
     );
 }

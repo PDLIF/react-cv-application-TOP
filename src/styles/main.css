@@ -109,6 +109,8 @@ select {
 
 .br-10 { border-radius: 10px; }
 
+.hidden { display: none; }
+
 /* colors */
 
 .bg-dark { background-color: hsl( var(--clr-dark) ); }

@@ -45,11 +45,11 @@ function Education({
     }
 
     return (
-        <div className="form-section education-section">
+        <div className="flex form-section education-section">
             <h2>Education</h2>
             
             {editingId !== null && (
-                <form onSubmit={handleSubmit} className='education-edit-form'>
+                <form onSubmit={handleSubmit} className='flex education-edit-form'>
                     <input 
                         type="text"
                         name='school'
@@ -87,15 +87,17 @@ function Education({
 
             {editingId === null && (
                 <>
-                    {education.map(ed => (
-                        <div key={ed.id} className="education-entry">
-                            <h3>{ed.school || 'Unknown school'}</h3>
-                            <div className="entry-actions">
-                                <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
-                                <button onClick={() => handleRemove(ed)} className='remove-btn'>Remove</button>
-                            </div>
-                        </div>
-                    ))}
+                    <ul className={`flex ${education.length === 0 ? 'hidden' : ''}`}>
+                        {education.map(ed => (
+                            <li key={ed.id} className="education-entry">
+                                <h3>{ed.school || 'Unknown school'}</h3>
+                                <div className="entry-actions">
+                                    <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
+                                    <button onClick={() => handleRemove(ed)} className='remove-btn'>Remove</button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                     <button onClick={handleAddNew} className='add-btn'>+ Add</button>
                 </>
             )}
