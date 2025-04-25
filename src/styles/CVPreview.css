@@ -4,6 +4,7 @@
     --gap: 4rem;
     background-color: rgb(65, 63, 63);
     padding: 2rem;
+    min-height: 90vh;
 }
 
 
