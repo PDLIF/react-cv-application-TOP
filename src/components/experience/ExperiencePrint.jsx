@@ -1,18 +1,22 @@
 function ExperiencePrint({ experience }) {
     return(
-        <div className="experience-info">
+        <div className="section experience-info">
             <h2 className={`heading ${experience.length === 0 ? 'hidden' : ''} `}>Experience</h2>
 
-            {experience.map(exp => (
-                <div key={exp.id} className="info-unit">
-                    <p className="period">{exp.dateFrom.split('-').slice(0, 2).join('-') + ' – ' + exp.dateTo.split('-').slice(0, 2).join('-')}</p>
-                    <div className="title">
-                        <h3>{exp.position}</h3>
-                        <p>{exp.company}</p>
+            <div className="flex info">
+                {experience.map(exp => (
+                    <div key={exp.id} className="flex info-unit">
+                        <p className="fs-400 period">{exp.dateFrom.split('-').slice(0, 2).join('-') + ' – ' + exp.dateTo.split('-').slice(0, 2).join('-')}</p>
+                        <div className="flex about">
+                            <div className="flex title">
+                                <h3 className="fs-500 position">{exp.position}</h3>
+                                <p className="fs-400 company-name">{exp.companyName}</p>
+                            </div>
+                            <p className="fs-400 description">{exp.mainTasks}</p>
+                        </div>
                     </div>
-                    <p className="description">{exp.mainTasks}</p>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }

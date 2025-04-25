@@ -1,10 +1,46 @@
+.cv-preview {
+    flex-direction: column;
+    flex-grow: 3;
+    --gap: 4rem;
+    background-color: rgb(65, 63, 63);
+    padding: 2rem;
+}
+
+
+
+
 .general-info {
     flex-direction: column;
     align-items: center;
     background-color: rgb(74, 74, 181);
     padding: 2rem;
+    --gap: 1rem;
 }
 
-.other-info {
-    --gap: 13rem;
+.general-info {
+    --gap: 2rem;
 }
+
+
+
+.cv-preview .info {
+    flex-direction: column;
+    --gap: 2rem;
+}
+
+.cv-preview .section .heading {
+    text-align: center;
+    background-color: rgb(99, 99, 175);
+    margin-bottom: 2rem;
+}
+
+.about {
+    flex-direction: column;
+    --gap: .3rem;
+}
+
+.title {
+    flex-direction: column;
+    --gap: 0;
+}
+

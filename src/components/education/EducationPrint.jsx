@@ -1,18 +1,22 @@
 function EducationPrint({ education }) {
     return(
-        <div className="section education-info">
+        <div className="education-info section">
             <h2 className={`heading ${education.length === 0 ? 'hidden' : ''} `}>Education</h2>
 
-            {education.map(ed => (
-                <div key={ed.id} className="info-unit">
-                    <p className="period">{ed.startDate.split('-').slice(0, 2).join('-') + ' – ' + ed.endDate.split('-').slice(0, 2).join('-')}</p>
-                    <div className="title">
-                        <h3>{ed.degree}</h3>
-                        <p>{ed.school}</p>
+            <div className="flex info">
+                {education.map(ed => (
+                    <div key={ed.id} className="flex info-unit">
+                        <p className="fs-400 period">{ed.startDate.split('-').slice(0, 2).join('-') + ' – ' + ed.endDate.split('-').slice(0, 2).join('-')}</p>
+                        <div className="flex about">
+                            <div className="flex title">
+                                <h3 className="fs-500 degree">{ed.degree}</h3>
+                                <p className="fs-400 school">{ed.school}</p>
+                            </div>
+                            <p className="fs-400 description">{ed.description}</p>
+                        </div>
                     </div>
-                    <p className="description">{ed.description}</p>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }

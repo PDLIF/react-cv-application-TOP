@@ -1,8 +1,7 @@
-import '../../styles/GeneralInfoPrint.css'
 
 function GeneralInfoPrint({ fullName, email, phone, adress }) {
     return(
-        <div className="flex br-10 general-info">
+        <div className="general-info flex br-10">
             <h1 className="name">{fullName}</h1>
             <div className="flex other-info">
                 {email && (
