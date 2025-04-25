@@ -56,6 +56,13 @@ function GeneralInfo({
                             value={tempFormData.phone}
                             onChange={handleChange}
                         />
+                        <input 
+                            type="text"
+                            name='github'
+                            placeholder='Git Hub'
+                            value={tempFormData.github}
+                            onChange={handleChange}
+                        />
                         <button type='submit'>Submit</button>
                     </form>
                 </>

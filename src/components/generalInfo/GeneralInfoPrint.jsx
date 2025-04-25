@@ -1,5 +1,5 @@
 
-function GeneralInfoPrint({ fullName, email, phone, adress }) {
+function GeneralInfoPrint({ fullName, email, phone, adress, github }) {
     return(
         <div className="general-info flex br-10">
             <h1 className="name">{fullName}</h1>
@@ -22,6 +22,13 @@ function GeneralInfoPrint({ fullName, email, phone, adress }) {
                     <div>
                         <i className="fa-solid fa-location-dot" />
                         <span>{adress}</span>
+                    </div>
+                )}
+
+                {github && (
+                    <div>
+                        <i className="fa-solid fa-location-dot" />
+                        <span>{github}</span>
                     </div>
                 )}
             </div>

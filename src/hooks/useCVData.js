@@ -8,6 +8,7 @@ function useCVData() {
             email: '',
             phone: '',
             adress: '',
+            github: ''
         },
         education: [],
         experience: [],
