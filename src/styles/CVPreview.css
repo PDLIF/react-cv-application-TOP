@@ -17,10 +17,9 @@
     --gap: 1rem;
 }
 
-.general-info {
-    --gap: 2rem;
+.general-info .other-info {
+    --gap: 6rem;
 }
-
 
 
 .cv-preview .info {
