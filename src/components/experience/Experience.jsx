@@ -7,12 +7,12 @@ function Experience({
     onUpdate,
     onRemove
 }) {
+    const [isAddingNew, setIsAddingNew] = useState(false);
     const [editingId, setEditingId] = useState(null);
     const [tempFormData, setTempFormData] = useState({ companyName: '', position: '', mainTasks: '', dateFrom: '', dateTo: '' });
 
     const handleAddNew = () => {
-        const newId = onAdd();
-        setEditingId(newId);
+        setIsAddingNew(true);
         setTempFormData({ companyName: '', position: '', mainTasks: '', dateFrom: '', dateTo: '' });
     }
 
@@ -30,10 +30,21 @@ function Experience({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        Object.entries(tempFormData).forEach(([field, value]) => {
-            onUpdate(editingId, field, value);
-        });
-        setEditingId(null);
+
+        if(editingId) {
+            Object.entries(tempFormData).forEach(([field, value]) => {
+                onUpdate(editingId, field, value);
+            });
+            setEditingId(null);
+        }
+
+        if (isAddingNew) {
+            const newId = onAdd();
+            Object.entries(tempFormData).forEach(([field, value]) => {
+                onUpdate(newId, field, value);
+            });
+            setIsAddingNew(false);
+        }
     }
 
     const handleRemove = (exp) => {
@@ -42,13 +53,14 @@ function Experience({
 
     const handleCancel = () => {
         setEditingId(null);
+        setIsAddingNew(false);
     }
 
     return (
         <div className="flex form-section experience-section">
             <h2>Experience</h2>
 
-            {editingId !== null && (
+            {((editingId !== null) || (isAddingNew)) && (
                 <form onSubmit={handleSubmit} className="flex experience-edit-form">
                     <input 
                         type="text"
@@ -92,7 +104,7 @@ function Experience({
                 </form>
             )}
 
-            {editingId === null && (
+            {((editingId === null) && (!isAddingNew)) && (
                 <>
                     <ul className={`flex ${experience.length === 0 ? 'hidden' : ''} entries-section`}>
                         {experience.map(exp => (

@@ -7,12 +7,12 @@ function Education({
     onUpdate,
     onRemove
 }) {
+    const [isAddingNew, setIsAddingNew] = useState(false);
     const [editingId, setEditingId] = useState(null);
     const [tempFormData, setTempFormData] = useState({ school: '', degree: '', startDate: '', endDate: '', description: '' });
 
     const handleAddNew = () => {
-        const newId = onAdd();
-        setEditingId(newId);
+        setIsAddingNew(true);
         setTempFormData({ school: '', degree: '', startDate: '', endDate: '', description: '' });
     }
 
@@ -30,10 +30,21 @@ function Education({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        Object.entries(tempFormData).forEach(([field, value]) => {
-            onUpdate(editingId, field, value);
-        });
-        setEditingId(null);
+
+        if (editingId) {
+            Object.entries(tempFormData).forEach(([field, value]) => {
+                onUpdate(editingId, field, value);
+            });
+            setEditingId(null);
+        }
+
+        if (isAddingNew) {
+            const newId = onAdd();
+            Object.entries(tempFormData).forEach(([field, value]) => {
+                onUpdate(newId, field, value);
+            });
+            setIsAddingNew(false);
+        }
     }
 
     const handleRemove = (ed) => {
@@ -42,13 +53,14 @@ function Education({
 
     const handleCancel = () => {
         setEditingId(null);
+        setIsAddingNew(false);
     }
 
     return (
         <div className="flex form-section education-section">
             <h2>Education</h2>
             
-            {editingId !== null && (
+            {((editingId !== null) || (isAddingNew)) && (
                 <form onSubmit={handleSubmit} className='flex education-edit-form'>
                     <input 
                         type="text"
@@ -92,7 +104,7 @@ function Education({
                 </form>
             )}
 
-            {editingId === null && (
+            {((editingId === null) && (!isAddingNew)) && (
                 <>
                     <ul className={`flex ${education.length === 0 ? 'hidden' : ''} entries-section`}>
                         {education.map(ed => (
