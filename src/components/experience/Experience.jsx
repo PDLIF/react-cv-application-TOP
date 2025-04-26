@@ -77,13 +77,6 @@ function Experience({
                         onChange={handleChange}
                     />
                     <input 
-                        type="text"
-                        name='mainTasks'
-                        placeholder='Main tasks'
-                        value={tempFormData.mainTasks}
-                        onChange={handleChange}
-                    />
-                    <input 
                         type="date"
                         name='dateFrom'
                         placeholder='Date from'
@@ -95,6 +88,13 @@ function Experience({
                         name='dateTo'
                         placeholder='Date to'
                         value={tempFormData.dateTo}
+                        onChange={handleChange}
+                    />
+                    <input 
+                        type="text"
+                        name='mainTasks'
+                        placeholder='Main tasks'
+                        value={tempFormData.mainTasks}
                         onChange={handleChange}
                     />
                     <div className="flex form-actions">
