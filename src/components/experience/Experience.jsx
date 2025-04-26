@@ -90,12 +90,13 @@ function Experience({
                         value={tempFormData.dateTo}
                         onChange={handleChange}
                     />
-                    <input 
+                    <textarea 
                         type="text"
                         name='mainTasks'
                         placeholder='Main tasks'
                         value={tempFormData.mainTasks}
                         onChange={handleChange}
+                        rows={4}
                     />
                     <div className="flex form-actions">
                         <button type='submit'>Save</button>
