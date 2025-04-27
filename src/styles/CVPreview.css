@@ -1,7 +1,7 @@
 .cv-preview {
     flex-direction: column;
     --gap: 4rem;
-    background-color: rgb(65, 63, 63);
+    background-color: hsl( var(--clr-light) );
     padding: 2rem;
     min-height: 90vh;
     width: 100%;

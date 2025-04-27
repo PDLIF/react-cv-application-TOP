@@ -1,6 +1,6 @@
 .form-section {
     border-radius: 10px;
-    background-color: rgb(65, 63, 63);
+    background-color: hsl( var(--clr-light) );
     --gap: 0;
 }
 
@@ -23,7 +23,7 @@
 .form-section form input,
 .form-section form textarea {
     border-radius: 7px;
-    background-color: rgb(121, 119, 119);
+    background-color: hsl( var(--clr-lighter) );
     border: none;
     padding-inline: .5rem;
     padding-block: .2rem;

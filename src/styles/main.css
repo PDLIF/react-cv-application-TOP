@@ -4,8 +4,9 @@
 
 :root {
     /* colors */
-    --clr-dark: 230 35% 7%;
-    --clr-light: 231 77% 90%;
+    --clr-dark: 220, 15%, 8%;
+    --clr-light: 220, 12%, 20%;
+    --clr-lighter: 220, 12%, 12%;
     --clr-white: 0 0% 100%;
 
     /* fonts-sizes */
