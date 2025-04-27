@@ -7,9 +7,6 @@
     width: 100%;
 }
 
-
-
-
 .general-info {
     flex-direction: column;
     align-items: center;
@@ -22,6 +19,9 @@
     --gap: 6rem;
 }
 
+.other-info i {
+    margin-right: .7rem;
+}
 
 .cv-preview .info {
     flex-direction: column;

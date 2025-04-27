@@ -27,7 +27,7 @@ function GeneralInfoPrint({ fullName, email, phone, adress, github }) {
 
                 {github && (
                     <div>
-                        <i className="fa-solid fa-location-dot" />
+                        <i className="fa-brands fa-github" />
                         <span>{github}</span>
                     </div>
                 )}
