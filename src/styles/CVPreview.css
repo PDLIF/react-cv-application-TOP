@@ -10,7 +10,7 @@
 .general-info {
     flex-direction: column;
     align-items: center;
-    background-color: rgb(74, 74, 181);
+    background-color: hsl( var(--clr-accent-1) );
     padding: 2rem;
     --gap: 1rem;
 }
@@ -30,8 +30,9 @@
 
 .cv-preview .section .heading {
     text-align: center;
-    background-color: rgb(99, 99, 175);
+    background-color: hsl( var(--clr-accent-1) );
     margin-bottom: 2rem;
+    padding-block: .4rem;
 }
 
 .about {

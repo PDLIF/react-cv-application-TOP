@@ -1,7 +1,7 @@
 function ExperiencePrint({ experience }) {
     return(
         <div className="section experience-info">
-            <h2 className={`heading ${experience.length === 0 ? 'hidden' : ''} `}>Experience</h2>
+            <h2 className={`heading ${experience.length === 0 ? 'hidden' : ''} br-5`}>Experience</h2>
 
             <div className="flex info">
                 {experience.map(exp => (

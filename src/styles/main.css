@@ -8,6 +8,7 @@
     --clr-light: 220, 12%, 20%;
     --clr-lighter: 220, 12%, 12%;
     --clr-white: 0 0% 95%;
+    --clr-accent-1: 240 42% 50%;
 
     /* fonts-sizes */
     --fs-900: 4rem;
@@ -116,6 +117,7 @@ ul {
 }
 
 .br-10 { border-radius: 10px; }
+.br-5 { border-radius: 5px; }
 
 .hidden { display: none; }
 

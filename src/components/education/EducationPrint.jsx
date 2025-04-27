@@ -1,7 +1,7 @@
 function EducationPrint({ education }) {
     return(
         <div className="education-info section">
-            <h2 className={`heading ${education.length === 0 ? 'hidden' : ''} `}>Education</h2>
+            <h2 className={`heading ${education.length === 0 ? 'hidden' : ''} br-5`}>Education</h2>
 
             <div className="flex info">
                 {education.map(ed => (
