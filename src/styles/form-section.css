@@ -44,19 +44,41 @@ form .form-actions {
 }
 
 .form-section button {
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
-    background-color: rgb(54, 120, 227);
+    background-color: hsl(var(--clr-accent-2) );
     color: #ffff;
     padding: .2rem .5rem;
     cursor: pointer;
 }
 
+.form-section button:not(.expand-button) {
+    font-weight: 300;
+}
+
+.form-section button.add-btn {
+    border-radius: 100%;
+}
+
+.form-section button:not(.expand-button):hover {
+    background-color: hsl( var(--clr-accent-2-hover) );
+}
+
 .form-section .expand-button {
+    justify-content: space-between;
+    align-items: center;
     background: transparent;
     padding: 1rem 1.5rem;
     text-align: left;
 }
+
+.expand-button i {
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+  }
 
 .form-section form button {
     align-self: end;
@@ -99,8 +121,15 @@ form .form-actions {
 
 .entry {
     justify-content: space-between;
-    background-color: rgb(121, 119, 119);
+    background-color: hsl( var(--clr-ligher-plus) );
     padding: 1rem 1.4rem;
     width: 100%;
 }
 
+
+
+
+
+.edit-btn i {
+    transform: translate(1.5px, 3px);
+}

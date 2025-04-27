@@ -19,6 +19,13 @@
     --gap: 6rem;
 }
 
+.other-info div {
+    background-color: hsl( var(--clr-accent-1-lighter) );
+    padding: .2rem .4rem;
+    border-radius: 10px;
+    font-weight: 300;
+}
+
 .other-info i {
     margin-right: .7rem;
 }

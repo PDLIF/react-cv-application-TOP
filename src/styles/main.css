@@ -7,8 +7,12 @@
     --clr-dark: 220, 15%, 8%;
     --clr-light: 220, 12%, 20%;
     --clr-lighter: 220, 12%, 12%;
+    --clr-ligher-plus: 220 30% 32%;
     --clr-white: 0 0% 95%;
     --clr-accent-1: 240 42% 50%;
+    --clr-accent-1-lighter: 240 42% 58%;
+    --clr-accent-2: 217 75% 53%;
+    --clr-accent-2-hover: 217 75% 55%;
 
     /* fonts-sizes */
     --fs-900: 4rem;

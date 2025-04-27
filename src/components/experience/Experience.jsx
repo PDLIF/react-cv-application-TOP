@@ -59,8 +59,9 @@ function Experience({
 
     return (
         <div className="flex form-section experience-section">
-            <button onClick={() => setIsExperienceExpanded(!isExperienceExpanded)} className='expand-button'>
+            <button onClick={() => setIsExperienceExpanded(!isExperienceExpanded)} className='expand-button flex'>
                 <h2>Experience</h2>
+                <i class={`fa-solid fa-chevron-down ${isExperienceExpanded ? 'rotate-180' : ''}`}></i>
             </button>
 
             {isExperienceExpanded && (
@@ -115,13 +116,15 @@ function Experience({
                                     <li key={exp.id} className="flex br-10 entry experience-entry">
                                         <h3>{exp.position || 'Unknown position'}</h3>
                                         <div className="flex entry-actions">
-                                            <button onClick={() => handleEdit(exp)} className='edit-btn'>Edit</button>
-                                            <button onClick={() => handleRemove(exp)} className='remove-btn'>Remove</button>
+                                            <button onClick={() => handleEdit(exp)} className='edit-btn flex'><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button onClick={() => handleRemove(exp)} className='remove-btn'><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </li>
                                 ))}
                             </ul>
-                            <button onClick={handleAddNew} className='add-btn'>+ Add</button>
+                            <button onClick={handleAddNew} className='add-btn'>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
                         </>
                     )}
                 </div>

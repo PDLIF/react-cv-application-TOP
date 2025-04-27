@@ -59,8 +59,9 @@ function Education({
 
     return (
         <div className="flex form-section education-section">
-            <button onClick={() => setIsEducationExpanded(!isEducationExpanded)} className='expand-button'>
+            <button onClick={() => setIsEducationExpanded(!isEducationExpanded)} className='expand-button flex'>
                 <h2>Education</h2>
+                <i class={`fa-solid fa-chevron-down ${isEducationExpanded ? 'rotate-180' : ''}`}></i>
             </button>
 
             {isEducationExpanded && (
@@ -115,13 +116,15 @@ function Education({
                                     <li key={ed.id} className="flex br-10 entry education-entry">
                                         <h3>{ed.school || 'Unknown school'}</h3>
                                         <div className="flex entry-actions">
-                                            <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
-                                            <button onClick={() => handleRemove(ed)} className='remove-btn'>Remove</button>
+                                            <button onClick={() => handleEdit(ed)} className='edit-btn flex'><i class="fa-solid fa-pen-to-square"></i></button>
+                                            <button onClick={() => handleRemove(ed)} className='remove-btn'><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </li>
                                 ))}
                             </ul>
-                            <button onClick={handleAddNew} className='add-btn'>+ Add</button>
+                            <button onClick={handleAddNew} className='add-btn'>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
                         </>
                     )}
                 </div>
