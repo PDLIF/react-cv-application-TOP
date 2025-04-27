@@ -5,7 +5,7 @@ function GeneralInfo({
     personalInfo,
     onPersonalInfoChange
 }) {
-    const [isEditing, setIsEditing] = useState(true);
+    const [isEditing, setIsEditing] = useState(false);
     const [tempFormData, setTempFormData] = useState(personalInfo);
 
     const handleChange = (e) => {
