@@ -9,6 +9,7 @@ function Education({
 }) {
     const [isAddingNew, setIsAddingNew] = useState(false);
     const [editingId, setEditingId] = useState(null);
+    const [isEducationExpanded, setIsEducationExpanded] = useState(false);
     const [tempFormData, setTempFormData] = useState({ school: '', degree: '', startDate: '', endDate: '', description: '' });
 
     const handleAddNew = () => {
@@ -58,67 +59,72 @@ function Education({
 
     return (
         <div className="flex form-section education-section">
-            <h2>Education</h2>
-            
-            {((editingId !== null) || (isAddingNew)) && (
-                <form onSubmit={handleSubmit} className='flex education-edit-form'>
-                    <input 
-                        type="text"
-                        name='school'
-                        placeholder='School name'
-                        value={tempFormData.school}
-                        onChange={handleChange}
-                    />
-                    <input 
-                        type="text"
-                        name='degree'
-                        placeholder='Degree/Title'
-                        value={tempFormData.degree}
-                        onChange={handleChange}
-                    />
-                    <input 
-                        type="date"
-                        name='startDate'
-                        placeholder='Start date'
-                        value={tempFormData.startDate}
-                        onChange={handleChange}
-                    />
-                    <input 
-                        type="date"
-                        name='endDate'
-                        placeholder='End date'
-                        value={tempFormData.endDate}
-                        onChange={handleChange}
-                    />
-                    <input 
-                        type="text"
-                        name='description'
-                        placeholder='Description'
-                        value={tempFormData.description}
-                        onChange={handleChange}
-                    />
-                    <div className="flex form-actions">
-                        <button type='submit'>Save</button>
-                        <button type='button' onClick={handleCancel}>Cancel</button>
-                    </div>
-                </form>
-            )}
+            <button onClick={() => setIsEducationExpanded(!isEducationExpanded)} className='expand-button'>
+                <h2>Education</h2>
+            </button>
 
-            {((editingId === null) && (!isAddingNew)) && (
-                <>
-                    <ul className={`flex ${education.length === 0 ? 'hidden' : ''} entries-section`}>
-                        {education.map(ed => (
-                            <li key={ed.id} className="flex br-10 entry education-entry">
-                                <h3>{ed.school || 'Unknown school'}</h3>
-                                <div className="flex entry-actions">
-                                    <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
-                                    <button onClick={() => handleRemove(ed)} className='remove-btn'>Remove</button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <button onClick={handleAddNew} className='add-btn'>+ Add</button>
-                </>
+            {isEducationExpanded && (
+                <div className="content-wrapper flex">
+                    {(editingId !== null || isAddingNew) ? (
+                        <form onSubmit={handleSubmit} className='flex education-edit-form'>
+                            <input 
+                                type="text"
+                                name='school'
+                                placeholder='School name'
+                                value={tempFormData.school}
+                                onChange={handleChange}
+                            />
+                            <input 
+                                type="text"
+                                name='degree'
+                                placeholder='Degree/Title'
+                                value={tempFormData.degree}
+                                onChange={handleChange}
+                            />
+                            <input 
+                                type="text"
+                                name='startDate'
+                                placeholder='Start date (e.g. 12-04-2012)'
+                                value={tempFormData.startDate}
+                                onChange={handleChange}
+                            />
+                            <input 
+                                type="text"
+                                name='endDate'
+                                placeholder='End date (e.g. 12-04-2012)'
+                                value={tempFormData.endDate}
+                                onChange={handleChange}
+                            />
+                            <textarea 
+                                type="text"
+                                name='description'
+                                placeholder='Description'
+                                value={tempFormData.description}
+                                onChange={handleChange}
+                                rows={4}
+                            />
+                            <div className="flex form-actions">
+                                <button type='submit'>Save</button>
+                                <button type='button' onClick={handleCancel}>Cancel</button>
+                            </div>
+                        </form>
+                    ) : (
+                        <>
+                            <ul className={`entries-section flex ${education.length === 0 ? 'hidden' : ''}`}>
+                                {education.map(ed => (
+                                    <li key={ed.id} className="flex br-10 entry education-entry">
+                                        <h3>{ed.school || 'Unknown school'}</h3>
+                                        <div className="flex entry-actions">
+                                            <button onClick={() => handleEdit(ed)} className='edit-btn'>Edit</button>
+                                            <button onClick={() => handleRemove(ed)} className='remove-btn'>Remove</button>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button onClick={handleAddNew} className='add-btn'>+ Add</button>
+                        </>
+                    )}
+                </div>
             )}
         </div>
     );
