@@ -1,3 +1,7 @@
+/* ------------------- */
+/* General             */
+/* ------------------- */
+
 .form-section {
     border-radius: 10px;
     background-color: hsl( var(--clr-light) );
@@ -16,9 +20,8 @@
     --gap: .7rem;
 }
 
-.form-section form textarea {
-    resize: none;
-}
+
+/* Styling fields (input, textarea) */
 
 .form-section form input,
 .form-section form textarea {
@@ -31,6 +34,10 @@
     font-weight: 300;
 }
 
+.form-section form textarea {
+    resize: none;
+}
+
 .form-section form input::placeholder,
 .form-section form textarea::placeholder {
     color: #ffff;
@@ -39,8 +46,31 @@
     opacity: .6;
 }
 
+
+/* Styling entries in Education and Experience sections */
+
+.entries-section {
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry {
+    justify-content: space-between;
+    background-color: hsl( var(--clr-ligher-plus) );
+    padding: 1rem 1.4rem;
+    width: 100%;
+}
+
+
+/* Styling buttons */
+
 form .form-actions {
     align-self: flex-end;
+}
+
+.form-section form button {
+    align-self: end;
+    margin-top: 1rem;
 }
 
 .form-section button {
@@ -76,13 +106,12 @@ form .form-actions {
     transition: transform 0.3s ease; /* Smooth rotation */
 }
 
+.edit-btn i {
+    transform: translate(1.5px, 3px);
+}
+
 .rotate-180 {
     transform: rotate(180deg);
-  }
-
-.form-section form button {
-    align-self: end;
-    margin-top: 1rem;
 }
 
 .form-section .add-btn {
@@ -92,6 +121,13 @@ form .form-actions {
 
 
 
+
+
+
+
+/* -------------------- */
+/* General info section */
+/* -------------------- */
 
 .general-section {
     padding: 1rem;
@@ -108,28 +144,4 @@ form .form-actions {
 
 .form-section:not(.general-section) {
     flex-direction: column;
-}
-
-
-
-
-
-.entries-section {
-    flex-direction: column;
-    align-items: center;
-}
-
-.entry {
-    justify-content: space-between;
-    background-color: hsl( var(--clr-ligher-plus) );
-    padding: 1rem 1.4rem;
-    width: 100%;
-}
-
-
-
-
-
-.edit-btn i {
-    transform: translate(1.5px, 3px);
 }

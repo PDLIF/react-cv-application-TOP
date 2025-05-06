@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../styles/form-section.css'
+import '../../styles/cv-form.css'
 
 function Education({
     education,
