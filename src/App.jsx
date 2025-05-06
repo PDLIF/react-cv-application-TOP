@@ -4,7 +4,7 @@ import Education from './components/education/Education';
 import Experience from './components/experience/Experience';
 import CVPreview from './components/other/CVPreview';
 
-import './styles/app.css'
+import './styles/App.css'
 
 function App() {
   const {
